@@ -1,0 +1,13 @@
+{
+  "bron": "Brand New Day Vermogensopbouw N.V., factsheets per 30-09-2026 (gelinkt vanaf new.brandnewday.nl/factsheets-fondsen/).",
+  "opgehaald": "2026-11-11",
+  "toelichting": "Indexfondsen (geen ETF). Rendement per kalenderjaar 'na kosten' in EUR, inclusief dividenden; peildatum 2025-12-31. SRI uit de risicometer op de factsheet.",
+  "fondsen": [
+    {"isin":"NL0012706154","name":"BND Wereld Indexfonds Hedged","type":"indexfonds","ter":0.15,"terLabel":"Fondskosten incl. onderliggend fonds","fundSize":"EUR 3.056.820.314","fundSizeAsOf":"2026-09-30","currency":"EUR (valutarisico afgedekt)","inception":"2016-03-04","sri":5,"distribution":"Dividend wordt uitgekeerd in het fonds (laatste: EUR 0,52, juni 2026)","domicile":"Nederland","replication":"Fysiek (representatief deel van de index), via Vanguard Selected Screened FTSE Developed World II CCF (IE00BVVQ9K69)","index":"FTSE Developed Index (euro-hedged)","esg":"Uitsluitingen: schending UN Global Compact, controversiële wapens, tabak","y2021":22.86,"y2022":-17.87,"y2023":21.69,"y2024":19.53,"y2025":17.34,"url":"https://www.brandnewday.nl/content/app/pdf/documentencentrum/FactsheetsCollectief/BND-Wereld-Indexfonds-C-Hedged.pdf"},
+    {"isin":"NL0012706238","name":"BND Wereld Indexfonds Unhedged","type":"indexfonds","ter":0.15,"terLabel":"Fondskosten incl. onderliggend fonds","fundSize":"EUR 1.332.511.048","fundSizeAsOf":"2026-09-30","currency":"EUR (valutarisico niet afgedekt)","inception":"2017-12-12","sri":5,"distribution":"Dividend wordt uitgekeerd in het fonds (laatste: EUR 0,27, juni 2026)","domicile":"Nederland","replication":"Fysiek (representatief deel van de index), via Vanguard Selected Screened FTSE Developed World II CCF (IE00BVVQBD33)","index":"FTSE Developed Index","esg":"Uitsluitingen: schending UN Global Compact, controversiële wapens, tabak","y2021":30.28,"y2022":-12.72,"y2023":20.15,"y2024":25.91,"y2025":7.54,"url":"https://www.brandnewday.nl/content/app/pdf/documentencentrum/FactsheetsCollectief/BND-Wereld-Indexfonds-C-Unhedged.pdf"}
+  ],
+  "uitgesloten": [
+    {"isin":"NL0012706162","name":"BND Wereld Indexfonds Carbon Screened","reden":"Fondsvermogen EUR 280,1 mln (30-09-2026), onder de grens van 500 mln"},
+    {"name":"Overige BND-indexfondsen (Emerging Markets, Small Cap, Amerika, Europa, Pacific, obligaties)","reden":"Nog niet gecontroleerd in versie 1; sommige gelinkte factsheets zijn verouderd (o.a. 2016, 2019)"}
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "toelichting": "Volgorde is vast (alfabetisch) en verandert nooit, ook niet tijdens een lancering. 'link' is de affiliate-link naar de homepage van de aanbieder (zonder ISIN of ticker). Is 'link' null, dan toont Selecta alleen de naam, zonder link en zonder advertentietekst. Beschikbaarheid: true = gecontroleerd te koop, false = gecontroleerd niet te koop, null = nog niet gecontroleerd.",
+  "aanbieders": [
+    {"id":"brandnewday","naam":"Brand New Day","soort":"aanbieder","betaald":true,"vergoedingTekst":"Advertentie. Ik ontvang een vergoeding per klik.","link":null,"homepage":"https://www.brandnewday.nl/","rekeningen":["vrij","pensioen"]},
+    {"id":"degiro","naam":"DEGIRO","soort":"broker","betaald":true,"vergoedingTekst":"Advertentie. Ik ontvang een vergoeding per klik.","link":null,"homepage":"https://www.degiro.nl/","rekeningen":["vrij"]},
+    {"id":"etoro","naam":"eToro","soort":"broker","betaald":true,"vergoedingTekst":"Advertentie. Ik ontvang een vast bedrag per lancering.","link":null,"homepage":"https://www.etoro.com/nl/","rekeningen":["vrij"]},
+    {"id":"meesman","naam":"Meesman","soort":"aanbieder","betaald":false,"vergoedingTekst":"Geen commerciële afspraak.","link":"https://www.meesman.nl/","homepage":"https://www.meesman.nl/","rekeningen":["vrij","pensioen"]},
+    {"id":"scalable","naam":"Scalable Capital","soort":"broker","betaald":true,"vergoedingTekst":"Advertentie. Ik ontvang een vergoeding per klik.","link":null,"homepage":"https://nl.scalable.capital/","rekeningen":["vrij"]}
+  ],
+  "beschikbaarheid": {
+    "meesman": {
+      "_bron": "https://www.meesman.nl/onze-fondsen/ (Meesman biedt alleen eigen indexfondsen aan)",
+      "_gecontroleerd": "2026-11-11",
+      "NL0013689110": true,
+      "_overig": false
+    },
+    "brandnewday": {
+      "_bron": "https://new.brandnewday.nl/factsheets-fondsen/ (Brand New Day biedt alleen eigen indexfondsen aan)",
+      "_gecontroleerd": "2026-11-11",
+      "NL0012706154": true,
+      "NL0012706238": true,
+      "_overig": false
+    },
+    "degiro": {
+      "_bron": null,
+      "_gecontroleerd": null,
+      "NL0013689110": false,
+      "NL0012706154": false,
+      "NL0012706238": false,
+      "_overig": null
+    },
+    "scalable": {
+      "_bron": null,
+      "_gecontroleerd": null,
+      "NL0013689110": false,
+      "NL0012706154": false,
+      "NL0012706238": false,
+      "_overig": null
+    },
+    "etoro": {
+      "_bron": null,
+      "_gecontroleerd": null,
+      "NL0013689110": false,
+      "NL0012706154": false,
+      "NL0012706238": false,
+      "_overig": null
+    }
+  }
+}

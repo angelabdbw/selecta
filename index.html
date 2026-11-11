@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selecta ETF-vergelijker</title>
+<meta name="description" content="Selecta: een database met ETF's en indexfondsen. Filter zelf op productkenmerken. Geen advies.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="kop">
+  <div class="wrap">
+    <p class="tag">De Vermogensclub · Fiscaal Slim Beleggen</p>
+    <h1>Selecta <span>vergelijker</span></h1>
+    <p class="intro">Een database met ETF's en indexfondsen. Jij filtert zelf op kenmerken. Selecta kiest niet voor je.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <details class="uitleg" id="criteria">
+    <summary>Hoe is deze database samengesteld? <span class="lees">Lees dit eerst</span></summary>
+    <div class="uitleg-tekst">
+      <p>Selecta is een database met <strong id="aantal-totaal">…</strong> ETF's en indexfondsen. Elk fonds in de lijst voldoet aan dezelfde criteria:</p>
+      <ul>
+        <li>UCITS-ETF of Nederlands indexfonds;</li>
+        <li>fondsvermogen minimaal 500 miljoen (in de valuta van het fonds);</li>
+        <li>lopende kosten maximaal 0,50% per jaar;</li>
+        <li>minimaal vijf volle kalenderjaren historie (2021 t/m 2025);</li>
+        <li>alle gegevens zelf gecontroleerd bij de uitgever.</li>
+      </ul>
+      <p>Deze eerste versie bevat fondsen van iShares, Vanguard, Xtrackers, Amundi, Meesman en Brand New Day. Fondsen van andere uitgevers zijn nog niet gecontroleerd en staan er daarom (nog) niet in.</p>
+      <p>Of een fonds bij jou past, kan de database niet beoordelen. Je filtert zelf op kenmerken die jij belangrijk vindt. Selecta stelt geen vragen over jouw situatie, maakt geen selectie voor jou en doet geen aanbeveling. De volgorde is alfabetisch, tenzij je zelf een andere sortering kiest.</p>
+      <p>De getoonde rendementen zijn historisch, per kalenderjaar tot en met 31 december 2025, op basis van de factsheet of productpagina van de uitgever, zonder brokerkosten en belastingen. Beleggen brengt risico's met zich mee. Resultaten uit het verleden bieden geen garantie voor de toekomst. Wil je advies over wat bij jouw situatie past, ga dan naar een adviseur met een AFM-vergunning.</p>
+    </div>
+  </details>
+
+  <section class="filters" aria-label="Filters">
+    <details id="filter-details">
+    <summary class="filter-kop">
+      <h2>Filter op kenmerken <span id="actief" class="actief"></span></h2>
+    </summary>
+    <div class="filter-grid">
+      <label>Zoeken<input id="f-zoek" type="search" placeholder="Naam of ISIN" autocomplete="off"></label>
+      <label>Beleggingsgebied<select id="f-regio"><option value="">Alle</option></select></label>
+      <label>Soort belegging<select id="f-soort"><option value="">Alle</option></select></label>
+      <label>Focus<select id="f-focus"><option value="">Alle</option></select></label>
+      <label>Risico (SRI) maximaal<select id="f-sri"><option value="">Alle</option><option value="2">t/m 2</option><option value="3">t/m 3</option><option value="4">t/m 4</option><option value="5">t/m 5</option><option value="6">t/m 6</option></select></label>
+      <label>Duurzaamheid<select id="f-esg"><option value="">Alle</option><option value="ja">Met ESG-uitsluitingen (volgens uitgever)</option></select></label>
+      <label>Uitkeringsvorm<select id="f-uitkering"><option value="">Alle</option><option value="Accumulerend">Accumulerend (herbeleggen)</option><option value="Uitkerend">Uitkerend</option></select></label>
+      <label>Lopende kosten maximaal<select id="f-kosten"><option value="">Alle</option><option value="0.1">0,10%</option><option value="0.2">0,20%</option><option value="0.3">0,30%</option></select></label>
+      <label>Rekeningtype<select id="f-rekening"><option value="">Alle</option><option value="vrij">Vrij beleggen (box 3)</option><option value="pensioen">Pensioenrekening (lijfrente)</option></select></label>
+      <label>Aanbieder<select id="f-aanbieder"><option value="">Alle</option></select></label>
+      <label>Sorteren<select id="f-sort"><option value="naam">Naam (A-Z)</option><option value="kosten">Lopende kosten (laag-hoog)</option></select></label>
+    </div>
+    <p class="filter-noot">Het filter "Aanbieder" staat standaard op "Alle" en verandert niets aan de volgorde. <button type="button" id="wis" class="link-knop">Alle filters wissen</button></p>
+    </details>
+  </section>
+
+  <p id="telling" class="telling" role="status" aria-live="polite">Database laden…</p>
+  <div id="lijst" class="lijst"></div>
+
+  <footer class="voet">
+    <p>Selecta is een database en vergelijker, geen advies. Selecta slaat geen gegevens van jou op; alleen je filterkeuze wordt in je eigen browser onthouden.</p>
+    <p>Gegevensversie: <span id="versie">…</span>. Bronnen staan per fonds vermeld.</p>
+  </footer>
+</main>
+
+<noscript><p class="wrap">Selecta heeft JavaScript nodig om de database te tonen.</p></noscript>
+<script src="app.js"></script>
+</body>
+</html>

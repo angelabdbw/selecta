@@ -1,0 +1,9 @@
+{
+  "bron": "Xtrackers by DWS, productpagina's etf.dws.com/nl-nl (rol: Nederland, niet-professionele belegger). Rendement: tab Rendement > Kalenderjaar, rij 'Totaal rendement'.",
+  "opgehaald": "2026-11-11",
+  "toelichting": "Rendement per kalenderjaar na fondskosten, dividenden herbelegd, in valuta aandelenklasse; peildatum 2025-12-31. Domicilie afgeleid uit landcode ISIN en rechtsvorm (IE = Ierland, LU = Luxemburg).",
+  "fondsen": [
+    {"isin":"IE00BJ0KDR00","ticker":"XD9U / XUAA","name":"Xtrackers MSCI USA UCITS ETF 1C","ter":0.03,"fundSize":"EUR 13,94 mld","fundSizeAsOf":"2026-11-09","currency":"USD","inception":"2014-05-09","sri":4,"distribution":"Accumulerend (capitalisatie)","domicile":"Ierland","replication":"Fysiek (directe replicatie)","index":"MSCI USA","y2021":26.63,"y2022":-19.71,"y2023":26.74,"y2024":24.74,"y2025":17.45,"url":"https://etf.dws.com/nl-nl/IE00BJ0KDR00-msci-usa-ucits-etf-1c/"},
+    {"isin":"LU0274209740","ticker":"XMJP / XDJP","name":"Xtrackers MSCI Japan UCITS ETF 1C","ter":0.12,"fundSize":"EUR 7,42 mld","fundSizeAsOf":"2026-11-09","currency":"USD","inception":"2007-01-09","sri":5,"distribution":"Accumulerend (capitalisatie)","domicile":"Luxemburg","replication":"Fysiek (directe replicatie)","index":"MSCI Japan","y2021":1.53,"y2022":-16.77,"y2023":20.18,"y2024":8.23,"y2025":24.54,"url":"https://etf.dws.com/nl-nl/LU0274209740-msci-japan-ucits-etf-1c/"}
+  ]
+}

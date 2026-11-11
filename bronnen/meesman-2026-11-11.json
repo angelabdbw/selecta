@@ -1,0 +1,13 @@
+{
+  "bron": "Meesman Indexbeleggen: fondspagina's meesman.nl/onze-fondsen, factsheets per 30-09-2026 en Essentiële-informatiedocumenten (Eid) correct op 31-08-2026.",
+  "opgehaald": "2026-11-11",
+  "toelichting": "Indexfondsen (geen ETF, geen beursnotering, wekelijks verhandelbaar). Rendement per kalenderjaar in EUR na lopende kosten, exclusief in- en uitstapkosten (0,20%). 2021 komt uit de Eid (grafiek 'Prestaties in het verleden'), 2022-2025 staan ook op factsheet en fondspagina.",
+  "fondsen": [
+    {"isin":"NL0013689110","name":"Meesman Indexfonds Aandelen Wereldwijd Totaal (A)","type":"indexfonds","ter":0.40,"terLabel":"Beheerkosten (incl. onderliggende fondsen); transactiekosten 0,02%; instap/uitstap 0,20%","fundSize":"EUR 2,1 mld","fundSizeAsOf":"2026-09-30","currency":"EUR","inception":"2019-09-20","sri":5,"distribution":"Dividend jaarlijks, wordt automatisch herbelegd","domicile":"Nederland","replication":"Volledige fysieke nabootsing (via Northern Trust-indexfondsen)","index":"Mix van MSCI World NTC Screened, MSCI Emerging Markets NTC Screened en MSCI World Small Cap Select Low Carbon","esg":"Uitsluitingen op basis van ESG-criteria (MSCI ESG-indexen)","y2021":27.4,"y2022":-14.2,"y2023":18.0,"y2024":24.5,"y2025":7.3,"url":"https://www.meesman.nl/onze-fondsen/aandelen-wereldwijd-totaal/","factsheet":"https://www.meesman.nl/media/zpvkkdiw/factsheet-meesman-indexfonds-aandelen-wereldwijd-totaal-a-30-09-2026.pdf","kid":"https://www.meesman.nl/media/vr1ldcoz/2026-08-eid-miawta.pdf"}
+  ],
+  "uitgesloten": [
+    {"isin":"NL0015000PW1","name":"Meesman Indexfonds Aandelen Verantwoorde Toekomst","reden":"Startdatum 7-2-2022: geen 5 volle kalenderjaren"},
+    {"isin":"NL0010436705","name":"Meesman Indexfonds Obligaties Wereldwijd","reden":"Fondsvermogen EUR 154,2 mln (30-09-2026), onder de grens van 500 mln; index gewijzigd begin 2024"},
+    {"isin":"NL0015001OL5","name":"Meesman Rentefonds","reden":"Startdatum 8-12-2023: geen 5 volle kalenderjaren"}
+  ]
+}
