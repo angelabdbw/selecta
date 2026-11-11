@@ -1,0 +1,28 @@
+name: Selecta controle
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Broncode ophalen
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Node.js instellen
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Data en teksten controleren
+        run: node scripts/controleer-data.mjs
+      - name: JavaScript-syntaxis controleren
+        run: node --check app.js

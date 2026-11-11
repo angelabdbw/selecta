@@ -1,0 +1,11 @@
+{
+  "bron": "Amundi ETF Nederland (amundietf.nl, rol: Individual investor), productpagina. Rendement: tab 'Calendar Performance', rij van het fonds.",
+  "opgehaald": "2026-11-11",
+  "toelichting": "Rendement per kalenderjaar in de referentievaluta van het fonds (EUR), peildatum 2025-12-31 ('Data as of 09/11/2026'). Exclusief kosten en commissies van de belegger.",
+  "fondsen": [
+    {"isin":"LU1681048804","ticker":"500","name":"Amundi S&P 500 Swap UCITS ETF EUR Acc","ter":0.15,"terLabel":"Management fees (incl. administratieve kosten)","fundSize":"EUR 7.076,41 mln","fundSizeAsOf":"2026-11-10","currency":"EUR","inception":"2010-06-08","sri":4,"distribution":"Accumulerend (capitalisatie)","domicile":"Luxemburg","replication":"Synthetisch (unfunded swap)","index":"S&P 500","sfdr":"Art. 6","y2021":38.36,"y2022":-12.88,"y2023":21.80,"y2024":33.12,"y2025":3.73,"url":"https://www.amundietf.nl/en/individual/products/equity/amundi-sp-500-swap-ucits-etf-eur-acc/lu1681048804"}
+  ],
+  "uitgesloten": [
+    {"isin":"IE0003XJA0J9","ticker":"WEBN","name":"Amundi Prime All Country World","reden":"Niet gecontroleerd; uitgever-startdatum 2024 volgens oude catalogus, dus geen 5 volle kalenderjaren (nog te bevestigen)"}
+  ]
+}
