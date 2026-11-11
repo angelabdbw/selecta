@@ -1,0 +1,40 @@
+{
+  "bron": "eToro (ingelogd, Nederlandse rekening), instrumentpagina https://www.etoro.com/markets/<symbool>.",
+  "gecontroleerd": "2026-11-11",
+  "methode": "eToro toont geen ISIN. Koppeling via beurscode + beurs (bijv. VWCE op Xetra), bevestigd met de noteringen per ISIN in de productzoeker van DEGIRO (bronnen/degiro-2026-11-11.json). Te koop = instrumentpagina met fondsnaam en knop 'Handelen' in het account.",
+  "te_koop": {
+    "IE00B4L5Y983": "IWDA.NV (Euronext)",
+    "IE00B6R52259": "IUSQ.DE (Xetra)",
+    "IE00BYX2JD69": "SUSW.L (LSE)",
+    "IE00B4L5YC18": "IEMA.L (LSE)",
+    "IE00BKM4GZ66": "IS3N.DE (Xetra)",
+    "IE00B1YZSC51": "IMEU.L (LSE)",
+    "IE00B5BMR087": "SXR8.DE (Xetra)",
+    "IE0031442068": "IUSA.L (LSE)",
+    "IE00B3WJKG14": "QDVE.DE (Xetra)",
+    "IE00B53SZB19": "CNDX.L (LSE)",
+    "IE00BF4RFH31": "IUSN.DE (Xetra)",
+    "DE000A0F5UH1": "SDGPEX.DE (Xetra)",
+    "IE00BDBRDM35": "EUNA.DE (Xetra)",
+    "IE00B4WXJJ64": "EUNH.DE (Xetra)",
+    "IE0032895942": "IBCD.DE (Xetra)",
+    "IE00B66F4759": "EUNW.DE (Xetra)",
+    "IE00BG0J4C88": "L0CK.DE (Xetra)",
+    "IE00BYZK4776": "2B78.DE (Xetra)",
+    "IE00BQT3WG13": "36BZ.DE (Xetra)",
+    "IE00B02KXH56": "IJPN.L (LSE)",
+    "IE00BK5BQT80": "VWCE.DE (Xetra)",
+    "IE00B3RBWM25": "VWRL.L (LSE)",
+    "IE00B3VVMM84": "VFEM.NV (Euronext)",
+    "IE00B945VV12": "VEUR.L (LSE)",
+    "IE00B3XXRP09": "VUSA.NV (Euronext)",
+    "IE00B8GKDB10": "VGWD.DE (Xetra)",
+    "IE00BG47KH54": "VAGF.DE (Xetra)",
+    "IE00BJ0KDR00": "XD9U.DE (Xetra)",
+    "LU0274209740": "XMJP.DE (Xetra); instrumentpagina gevonden, sessie verliep direct daarna"
+  },
+  "niet_te_koop": {
+    "DE0002635307": "EXSA: instrumentpagina niet beschikbaar in het account (doorverwezen naar startpagina)",
+    "LU1681048804": "Amundi S&P 500 Swap EUR Acc: geen notering met de beurscodes van dit ISIN (500, AUM5, A500) in de eToro-instrumentenlijst"
+  }
+}
