@@ -154,6 +154,27 @@
     return svg;
   }
 
+  // Rendementblok op de kaart: gemiddelde per jaar plus de vijf jaarcijfers, met valuta.
+  function rendementBlok(f) {
+    var g = gemiddeldRendement(f);
+    var blok = el('div', { class: 'rendblok' });
+    blok.appendChild(el('div', { class: 'rend-gem' }, [
+      el('span', { class: 'rend-label', text: 'Gemiddeld rendement per jaar 2021–2025' }),
+      el('span', { class: 'rend-waarde' }, [g === null ? ONTBREEKT : procent(g, 1), el('sup', { text: '*' })]),
+      el('span', { class: 'rend-valuta', text: g === null ? '' : 'in ' + rendValuta(f) })
+    ]));
+    var jaren = el('div', { class: 'rend-jaren', 'aria-label': 'Rendement per kalenderjaar' });
+    JAREN.forEach(function (j) {
+      var v = f.rendement ? f.rendement[j] : null;
+      jaren.appendChild(el('span', { class: 'rend-jaar' + (typeof v === 'number' && v < 0 ? ' min' : '') }, [
+        el('small', { text: j }),
+        el('b', { text: typeof v === 'number' ? procent(v, 1) : '–' })
+      ]));
+    });
+    blok.appendChild(jaren);
+    return blok;
+  }
+
   function feit(label, waarde) {
     var td = el('td');
     if (waarde === null || waarde === undefined || waarde === '') td.appendChild(el('span', { class: 'ontbreekt', text: ONTBREEKT }));
@@ -197,16 +218,13 @@
       el('span', null, ['ISIN ', el('b', { text: f.isin })]),
       el('span', null, ['Kosten ', el('b', { text: procent(f.ter, 2) || ONTBREEKT })]),
       el('span', null, ['Risico (SRI) ', el('b', { text: f.sri ? f.sri + ' van 7' : ONTBREEKT })]),
-      (function () {
-        var g = gemiddeldRendement(f);
-        return el('span', { class: 'gem' }, ['Gem. per jaar 2021–2025 ', el('b', { text: g === null ? ONTBREEKT : procent(g, 1) + ' (' + rendValuta(f) + ')' }), el('sup', { text: '*' })]);
-      })(),
       el('span', null, [el('b', { text: (f.type === 'indexfonds' ? f.uitkering : uitkeringGroep(f)) || f.uitkering || ONTBREEKT })])
     ]);
     k.appendChild(el('div', { class: 'kaart-kop' }, [
-      el('div', null, [el('span', { class: 'soortlabel', text: soortNaam(f) + ' · ' + f.regio }), el('h3', { text: f.naam }), kern]),
-      knop
+      el('div', null, [el('span', { class: 'soortlabel', text: soortNaam(f) + ' · ' + f.regio }), el('h3', { text: f.naam }), kern])
     ]));
+    k.appendChild(rendementBlok(f));
+    k.appendChild(el('div', { class: 'knop-rij' }, [knop]));
     var det = el('div', { class: 'details', id: detId, hidden: 'hidden' });
     knop.addEventListener('click', function () {
       var open = det.hasAttribute('hidden');
