@@ -34,6 +34,8 @@ select:focus,input:focus,button:focus-visible,a:focus-visible,summary:focus-visi
 .filter-noot{margin:10px 0 0;font-size:14px;color:var(--zacht)}
 .link-knop{background:none;border:0;color:var(--groen);text-decoration:underline;font:inherit;font-size:15px;cursor:pointer;padding:4px}
 .telling{margin:18px 2px 8px;font-weight:700;color:var(--groen)}
+.rend-uitleg{margin:0 2px 12px;font-size:13px;color:var(--zacht)}
+.kern sup,.rend-uitleg sup{color:var(--goud);font-weight:700}
 .lijst{display:grid;gap:12px}
 .kaart{background:var(--kaart);border:1.5px solid var(--lijn);border-radius:12px;padding:16px 18px}
 .kaart-kop{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
