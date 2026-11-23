@@ -142,15 +142,15 @@
       var x = padL + i * bw + bw * 0.18, bwi = bw * 0.64, v = waarden[i];
       if (v !== null) {
         var yv = y(v);
-        add('rect', { x: x, y: Math.min(yv, y0), width: bwi, height: Math.max(1, Math.abs(y0 - yv)), rx: 3, fill: v >= 0 ? '#2D5A3D' : '#B5543C' });
+        add('rect', { x: x, y: Math.min(yv, y0), width: bwi, height: Math.max(1, Math.abs(y0 - yv)), rx: 3, fill: v >= 0 ? '#253044' : '#ef4e91' });
         var ly = v >= 0 ? yv - 6 : yv + 15;
-        add('text', { x: x + bwi / 2, y: ly, 'text-anchor': 'middle', 'font-size': 12, fill: '#1f2a22' }, procent(v, 1));
+        add('text', { x: x + bwi / 2, y: ly, 'text-anchor': 'middle', 'font-size': 12, fill: '#253044' }, procent(v, 1));
       } else {
-        add('text', { x: x + bwi / 2, y: y0 - 6, 'text-anchor': 'middle', 'font-size': 10, fill: '#5b6a5f' }, 'geen data');
+        add('text', { x: x + bwi / 2, y: y0 - 6, 'text-anchor': 'middle', 'font-size': 10, fill: '#617184' }, 'geen data');
       }
-      add('text', { x: x + bwi / 2, y: h - 4, 'text-anchor': 'middle', 'font-size': 12, fill: '#5b6a5f' }, j);
+      add('text', { x: x + bwi / 2, y: h - 4, 'text-anchor': 'middle', 'font-size': 12, fill: '#617184' }, j);
     });
-    add('line', { x1: padL, x2: w - padR, y1: y0, y2: y0, stroke: '#2D5A3D66', 'stroke-width': 1 });
+    add('line', { x1: padL, x2: w - padR, y1: y0, y2: y0, stroke: '#25304466', 'stroke-width': 1 });
     return svg;
   }
 
@@ -253,6 +253,13 @@
     var flt = leesFilters();
     var zicht = fondsen.filter(function (f) { return past(f, flt); });
     if (flt.sort === 'kosten') zicht.sort(function (a, b) { return (a.ter - b.ter) || a.naam.localeCompare(b.naam, 'nl'); });
+    else if (flt.sort === 'rendement') zicht.sort(function (a, b) {
+      var ga = gemiddeldRendement(a), gb = gemiddeldRendement(b);
+      if (ga === null && gb === null) return a.naam.localeCompare(b.naam, 'nl');
+      if (ga === null) return 1;
+      if (gb === null) return -1;
+      return (gb - ga) || a.naam.localeCompare(b.naam, 'nl');
+    });
     else zicht.sort(function (a, b) { return a.naam.localeCompare(b.naam, 'nl'); });
     $('telling').textContent = zicht.length + ' van ' + fondsen.length + ' fondsen';
     var n = FILTERS.filter(function (k) { return k !== 'sort' && flt[k]; }).length;
