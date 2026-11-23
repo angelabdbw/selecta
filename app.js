@@ -253,13 +253,16 @@
     var flt = leesFilters();
     var zicht = fondsen.filter(function (f) { return past(f, flt); });
     if (flt.sort === 'kosten') zicht.sort(function (a, b) { return (a.ter - b.ter) || a.naam.localeCompare(b.naam, 'nl'); });
-    else if (flt.sort === 'rendement') zicht.sort(function (a, b) {
-      var ga = gemiddeldRendement(a), gb = gemiddeldRendement(b);
-      if (ga === null && gb === null) return a.naam.localeCompare(b.naam, 'nl');
-      if (ga === null) return 1;
-      if (gb === null) return -1;
-      return (gb - ga) || a.naam.localeCompare(b.naam, 'nl');
-    });
+    else if (flt.sort === 'rendement' || flt.sort === 'rendement-op') {
+      var richting = flt.sort === 'rendement' ? -1 : 1;
+      zicht.sort(function (a, b) {
+        var ga = gemiddeldRendement(a), gb = gemiddeldRendement(b);
+        if (ga === null && gb === null) return a.naam.localeCompare(b.naam, 'nl');
+        if (ga === null) return 1;
+        if (gb === null) return -1;
+        return richting * (ga - gb) || a.naam.localeCompare(b.naam, 'nl');
+      });
+    }
     else zicht.sort(function (a, b) { return a.naam.localeCompare(b.naam, 'nl'); });
     $('telling').textContent = zicht.length + ' van ' + fondsen.length + ' fondsen';
     var n = FILTERS.filter(function (k) { return k !== 'sort' && flt[k]; }).length;
