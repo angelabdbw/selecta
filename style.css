@@ -52,6 +52,18 @@ select:focus,input:focus,button:focus-visible,a:focus-visible,summary:focus-visi
 .soortlabel{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--groen);background:var(--lila);border:1px solid var(--lilalijn);border-radius:20px;padding:2px 10px;margin-bottom:8px}
 .kern{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0 0;font-size:15px;color:var(--zacht)}
 .kern b{color:var(--tekst)}
+.knop-rij{display:flex;justify-content:flex-end;margin-top:12px}
+.rendblok{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:stretch;background:var(--boter);border:1px solid var(--boterlijn);border-radius:16px;padding:12px 14px}
+.rend-gem{display:flex;flex-direction:column;justify-content:center;min-width:170px}
+.rend-label{font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--zacht)}
+.rend-waarde{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1.1;color:var(--groen)}
+.rend-waarde sup{font-family:Inter,'Segoe UI',sans-serif;font-size:14px;color:var(--roosdonker)}
+.rend-valuta{font-size:13px;color:var(--zacht)}
+.rend-jaren{display:grid;grid-template-columns:repeat(5,minmax(56px,1fr));gap:6px;flex:1 1 300px}
+.rend-jaar{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;border:1px solid var(--boterlijn);border-radius:12px;padding:6px 4px}
+.rend-jaar small{font-size:12px;color:var(--zacht)}
+.rend-jaar b{font-size:15px;color:var(--groen)}
+.rend-jaar.min b{color:var(--roosdonker)}
 .open-knop{background:var(--roos);color:#fff;border:0;border-radius:24px;padding:10px 18px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px #ef4e9133}
 .open-knop:hover{background:var(--roosdonker)}
 
@@ -81,4 +93,7 @@ select:focus,input:focus,button:focus-visible,a:focus-visible,summary:focus-visi
   .onder{grid-template-columns:1fr}
   .aanbieders{justify-self:stretch}
   .open-knop{width:100%}
+  .rend-jaren{grid-template-columns:repeat(5,1fr);gap:4px}
+  .rend-jaar b{font-size:13px}
+  .rend-waarde{font-size:26px}
 }
