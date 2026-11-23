@@ -5,6 +5,23 @@
   var ONTBREEKT = 'Nog geen geverifieerde gegevens';
   var OPSLAG = 'selecta-filters-v1';
   var FILTERS = ['zoek', 'regio', 'soort', 'focus', 'sri', 'esg', 'uitkering', 'kosten', 'rekening', 'aanbieder', 'sort'];
+  var SORTEERWAARDEN = ['naam', 'kosten', 'rendement', 'rendement-op'];
+
+  function werkSorteerknoppenBij() {
+    var s = document.getElementById('f-sort').value;
+    Array.prototype.forEach.call(document.querySelectorAll('.sort-knop'), function (b) {
+      var soort = b.getAttribute('data-sort');
+      var actief = soort === 'rendement' ? (s === 'rendement' || s === 'rendement-op') : s === soort;
+      b.classList.toggle('actief', actief);
+      b.setAttribute('aria-pressed', actief ? 'true' : 'false');
+      if (soort === 'naam') { b.textContent = 'Naam'; b.title = 'Naam A-Z'; }
+      if (soort === 'kosten') { b.textContent = 'Kosten'; b.title = 'Laagste kosten eerst'; }
+      if (soort === 'rendement') {
+        b.textContent = s === 'rendement-op' ? 'Rendement: laag eerst' : 'Rendement: hoog eerst';
+        b.title = 'Klik nog een keer om de volgorde om te draaien';
+      }
+    });
+  }
 
   var fondsen = [];
   var aanbieders = [];
@@ -89,6 +106,7 @@
     FILTERS.forEach(function (k) {
       var s = $('f-' + k);
       if (o[k] === undefined || o[k] === null) return;
+      if (k === 'sort' && SORTEERWAARDEN.indexOf(o[k]) === -1) return;
       if (s.tagName === 'SELECT' && !Array.prototype.some.call(s.options, function (op) { return op.value === o[k]; })) return;
       s.value = o[k];
     });
@@ -163,15 +181,6 @@
       el('span', { class: 'rend-waarde' }, [g === null ? ONTBREEKT : procent(g, 1), el('sup', { text: '*' })]),
       el('span', { class: 'rend-valuta', text: g === null ? '' : 'in ' + rendValuta(f) })
     ]));
-    var jaren = el('div', { class: 'rend-jaren', 'aria-label': 'Rendement per kalenderjaar' });
-    JAREN.forEach(function (j) {
-      var v = f.rendement ? f.rendement[j] : null;
-      jaren.appendChild(el('span', { class: 'rend-jaar' + (typeof v === 'number' && v < 0 ? ' min' : '') }, [
-        el('small', { text: j }),
-        el('b', { text: typeof v === 'number' ? procent(v, 1) : '–' })
-      ]));
-    });
-    blok.appendChild(jaren);
     return blok;
   }
 
@@ -223,8 +232,7 @@
     k.appendChild(el('div', { class: 'kaart-kop' }, [
       el('div', null, [el('span', { class: 'soortlabel', text: soortNaam(f) + ' · ' + f.regio }), el('h3', { text: f.naam }), kern])
     ]));
-    k.appendChild(rendementBlok(f));
-    k.appendChild(el('div', { class: 'knop-rij' }, [knop]));
+    k.appendChild(el('div', { class: 'knop-rij' }, [rendementBlok(f), knop]));
     var det = el('div', { class: 'details', id: detId, hidden: 'hidden' });
     knop.addEventListener('click', function () {
       var open = det.hasAttribute('hidden');
@@ -283,6 +291,7 @@
     }
     else zicht.sort(function (a, b) { return a.naam.localeCompare(b.naam, 'nl'); });
     $('telling').textContent = zicht.length + ' van ' + fondsen.length + ' fondsen';
+    werkSorteerknoppenBij();
     var n = FILTERS.filter(function (k) { return k !== 'sort' && flt[k]; }).length;
     $('actief').textContent = n ? '(' + n + ' actief)' : '';
     var lijst = $('lijst');
@@ -318,6 +327,14 @@
     FILTERS.forEach(function (k) {
       var n = $('f-' + k);
       n.addEventListener(n.tagName === 'INPUT' ? 'input' : 'change', function () { bewaar(); toon(); });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.sort-knop'), function (b) {
+      b.addEventListener('click', function () {
+        var soort = b.getAttribute('data-sort'), huidig = $('f-sort').value;
+        if (soort === 'rendement') $('f-sort').value = huidig === 'rendement' ? 'rendement-op' : 'rendement';
+        else $('f-sort').value = soort;
+        bewaar(); toon();
+      });
     });
     $('wis').addEventListener('click', function () {
       FILTERS.forEach(function (k) { $('f-' + k).value = k === 'sort' ? 'naam' : ''; });
