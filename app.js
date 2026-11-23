@@ -44,6 +44,20 @@
     return Object.prototype.hasOwnProperty.call(b, '_overig') ? b._overig : null;
   }
 
+  // Samengesteld (geometrisch) gemiddelde per jaar over 2021-2025, alleen als alle vijf jaren bekend zijn.
+  function gemiddeldRendement(f) {
+    if (!f.rendement) return null;
+    var factor = 1;
+    for (var i = 0; i < JAREN.length; i++) {
+      var v = f.rendement[JAREN[i]];
+      if (typeof v !== 'number' || !isFinite(v)) return null;
+      factor *= 1 + v / 100;
+    }
+    return (Math.pow(factor, 1 / JAREN.length) - 1) * 100;
+  }
+
+  function rendValuta(f) { return (f.valuta || '').replace(/\s*\(.*\)/, ''); }
+
   function soortNaam(f) { return f.type === 'indexfonds' ? 'Indexfonds' : 'ETF'; }
 
   function uitkeringGroep(f) {
@@ -183,6 +197,10 @@
       el('span', null, ['ISIN ', el('b', { text: f.isin })]),
       el('span', null, ['Kosten ', el('b', { text: procent(f.ter, 2) || ONTBREEKT })]),
       el('span', null, ['Risico (SRI) ', el('b', { text: f.sri ? f.sri + ' van 7' : ONTBREEKT })]),
+      (function () {
+        var g = gemiddeldRendement(f);
+        return el('span', { class: 'gem' }, ['Gem. per jaar 2021–2025 ', el('b', { text: g === null ? ONTBREEKT : procent(g, 1) + ' (' + rendValuta(f) + ')' }), el('sup', { text: '*' })]);
+      })(),
       el('span', null, [el('b', { text: (f.type === 'indexfonds' ? f.uitkering : uitkeringGroep(f)) || f.uitkering || ONTBREEKT })])
     ]);
     k.appendChild(el('div', { class: 'kaart-kop' }, [
@@ -222,8 +240,9 @@
     var gr = el('div', { class: 'grafiek' }, [el('h4', { text: 'Rendement per kalenderjaar' })]);
     if (heeftRend) gr.appendChild(grafiek(f));
     else gr.appendChild(el('p', { class: 'ontbreekt', text: ONTBREEKT }));
-    var valutaRend = (f.valuta || '').replace(/\s*\(.*\)/, '');
-    gr.appendChild(el('p', { class: 'rend-noot', text: 'Totaalrendement van het fonds in ' + (valutaRend || 'de fondsvaluta') + ', na fondskosten, met herbelegde dividenden. Peildatum 31-12-2025. Zonder brokerkosten en belasting. Vijf jaar laat maar één marktfase zien. Resultaten uit het verleden bieden geen garantie voor de toekomst.' }));
+    var valutaRend = rendValuta(f);
+    var gem = gemiddeldRendement(f);
+    gr.appendChild(el('p', { class: 'rend-noot', text: 'Totaalrendement van het fonds in ' + (valutaRend || 'de fondsvaluta') + ', na fondskosten, met herbelegde dividenden. Peildatum 31-12-2025.' + (gem !== null ? ' Samengesteld gemiddelde over deze vijf jaar: ' + procent(gem, 1) + ' per jaar.' : '') + ' Zonder brokerkosten en belasting. Vijf jaar laat maar één marktfase zien. Resultaten uit het verleden bieden geen garantie voor de toekomst.' }));
     var bron = el('p', { class: 'bron' }, ['Bron: ', el('a', { href: f.bron, target: '_blank', rel: 'noopener noreferrer', text: f.bronNaam || 'uitgever' }), ', geraadpleegd op ' + datumNL(meta.opgehaald) + '.']);
     det.appendChild(tabel);
     det.appendChild(gr);
